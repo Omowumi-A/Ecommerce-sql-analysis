@@ -51,7 +51,7 @@ ORDER BY "TotalPrice" DESC;
 ```
 Key Finding: 512 orders exceeded $1,000, with the highest valued at $3,456.40
 
-### Query 3 — Top-Selling Products (GROUP BY + COUNT)
+### Query 3 — Top-Selling Products (GROUP BY + COUNT):
 Counted total orders per product to identify best sellers.
 
 ```sql
@@ -62,5 +62,74 @@ ORDER BY total_orders DESC;
 ```
 Key Finding: The Printer was the top-selling product with 181 orders.
 
+### Query 4 — Revenue by Product (GROUP BY + SUM):
+Summed the total revenue per product to find the highest earners.
 
+```sql
+SELECT "Product", SUM("TotalPrice") AS total_revenue
+FROM orders
+GROUP BY "Product"
+ORDER BY total_revenue DESC;
+```
+Key Finding: Chair generated the highest total revenue at $195,620.11
 
+### Query 5 — Average Order Value by Payment Method (GROUP BY + AVG):
+Calculated average spend per payment channel.
+
+```sql
+SELECT "PaymentMethod", AVG("TotalPrice") AS avg_order_value
+FROM orders
+GROUP BY "PaymentMethod"
+ORDER BY avg_order_value DESC;
+```
+
+Key Finding: Credit Card had the highest average order value at $1,127.553
+
+### Query 6 — Order Status Breakdown (GROUP BY + COUNT):
+Counted orders per fulfillment status.
+
+```sql
+SELECT "OrderStatus", COUNT(*) AS status_count
+FROM orders
+GROUP BY "OrderStatus"
+ORDER BY status_count DESC;
+```
+
+Key Finding: 250 orders were cancelled, while 231 orders were delivered.
+
+### Query 7 — Top Referral Sources by Revenue (HAVING):
+Grouped revenue by referral source, filtering out sources below $50,000.
+
+> **Why HAVING and not WHERE?** The SQL execution order runs FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY. WHERE filters individual rows before grouping happens, so it cannot see aggregated values like SUM(). HAVING runs after GROUP BY, making it the correct tool for filtering on aggregated results.
+
+```sql
+SELECT "ReferralSource", SUM("TotalPrice") AS total_revenue
+FROM "Ecommerce dataset"
+GROUP BY "ReferralSource"
+HAVING SUM("TotalPrice") > 50000
+ORDER BY total_revenue DESC;
+```
+
+Key Finding: Instagram is the only referral source that generated the highest revenue with $275,285.45.
+
+## Key Business Insights
+| Query | Business Question | Finding |
+|-------|------------------|---------|
+| Query 2 | Which orders are high value? | 512 orders exceeded $1,000, with the highest valued at $3,456.40 |
+| Query 3 | Most ordered product? | Printer was the top-selling product with 181 orders |
+| Query 4 | Highest revenue product? | Chair generated the highest total revenue at $195,620.11 |
+| Query 5 | Best payment method by avg spend? | Credit card is the best payment method with the highest avg order value at $1,127.553 |
+| Query 6 | Order fulfillment health? | 250 orders were cancelled while 231 orders were delivered |
+| Query 7 | Top marketing channel by revenue? | Instagram generated the highest revenue |
+
+## Recommendations
+Since Instagram drives the most revenue, the marketing budget should prioritize these channels over underperforming sources.
+
+## Files
+- [analysis_queries.sql](analysis_queries.sql) — All 7 SQL queries with comments
+- [Project3_SQL_Analysis.docx](Project3_SQL_Analysis.docx) — Full project documentation
+
+## Related Projects
+- [Project 1: Data Cleaning](https://github.com/Omowumi2/Ecommerce-data-cleaning)
+- [Project 2: Exploratory Data Analysis](https://github.com/Omowumi2/Ecommerce-exploratory-data-analysis)
+- Project 4: Data Visualization *(coming soon)*
