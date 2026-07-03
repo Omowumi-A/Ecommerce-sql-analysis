@@ -161,5 +161,5 @@ Key Finding: All 5 referral sources exceeded the $50,000 threshold. Instagram le
 
 ## Related Projects
 - [Project 1: E-commerce Data Cleaning using Microsoft Excel](https://github.com/Omowumi-A/ecommerce-data-cleaning)
-- [Project 2: Exploratory Data Analysis](https://github.com/Omowumi2/Ecommerce-exploratory-data-analysis)
+- [Project 2: E-commerce Exploratory Data Analysis ](https://github.com/Omowumi2/ecommerce-exploratory-data-analysis)
 - Project 4: Data Visualization *(coming soon)*
