@@ -1,5 +1,5 @@
-# Ecommerce-sql-analysis
-SQL analysis of a 1,200-row e-commerce dataset using PostgreSQL, filtering, grouping, and aggregation | DecodeLabs Data Analytics Internship Project 3
+# E-commerce SQL Analysis using PostgreSQL
+Business Insights from a 1,200-Row E-Commerce Dataset | A portfolio project completed as part of the DecodeLabs Data Analytics Internship.
 
 ## Overview
 This project uses PostgreSQL to extract business insights from a cleaned, 1,200-row e-commerce orders dataset. The goal was to move beyond spreadsheet viewing and use structured SQL queries like filtering, grouping, and aggregating to answer specific business questions about sales, revenue, and customer behavior.
@@ -14,6 +14,23 @@ The dataset was cleaned in Project 1 before this analysis.
 It contains 1,200 rows and 14 columns: `OrderID` | `Date` | `CustomerID` | `Product` | `Quantity` | `UnitPrice` | `ShippingAddress` | `PaymentMethod` | `OrderStatus` | `TrackingNumber` | `ItemsInCart` | `CouponCode` | `ReferralSource` | `TotalPrice`
 
 The data was cleaned in Project 1 (missing CouponCode values handled, duplicate OrderIDs verified as zero, dates standardized to YYYY-MM-DD, numeric precision standardized to 2 decimal places) before being loaded into PostgreSQL.
+
+## Skills Demonstrated
+- SQL
+- PostgreSQL
+- pgAdmin
+- Data Filtering
+- Data Aggregation
+- GROUP BY
+- HAVING
+- Business Intelligence
+- Analytical Thinking
+- Relational Databases
+
+## Project Deliverables
+- SQL query file with 7 documented queries
+- Business insights summary
+- Key findings table
 
 ## How Data was Loaded
 1. Exported cleaned dataset as CSV from Excel
@@ -123,7 +140,10 @@ Key Finding: All 5 referral sources exceeded the $50,000 threshold. Instagram le
 | Query 7 | Top marketing channel by revenue? | All 5 sources exceeded $50K, Instagram led at $275,285.45 |
 
 ## Recommendations
-Since Instagram drives the most revenue, the marketing budget should prioritize these channels over underperforming sources.
+- **Investigate cancellations:** With 250 cancelled orders (20.8% of all orders), reducing the cancellation rate has the potential to improve revenue retention.
+- **Premium product focus:** Since UnitPrice drives TotalPrice more than Quantity (correlation 0.72 vs 0.62), promoting higher-priced products like Laptops will grow revenue faster than pushing volume
+- **Diversified marketing is healthy:** All 5 referral sources exceeded $50,000 in revenue — no single channel dominates, reducing acquisition risk
+- **VIP customer opportunity:** 512 orders exceeded $1,000 (42.7% of all orders) — a loyalty or rewards program targeting high-value customers could increase retention
 
 ## Files
 - [analysis_queries.sql](analysis_queries.sql) — All 7 SQL queries with comments
