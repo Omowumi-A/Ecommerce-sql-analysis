@@ -4,12 +4,22 @@ Business Insights from a 1,200-Row E-Commerce Dataset | A portfolio project comp
 ## Overview
 This project uses PostgreSQL to extract business insights from a cleaned, 1,200-row e-commerce orders dataset. The goal was to move beyond spreadsheet viewing and use structured SQL queries like filtering, grouping, and aggregating to answer specific business questions about sales, revenue, and customer behavior.
 
+## Project Snapshot
+
+| Metric | Result |
+|---------|-------|
+| Dataset | 1,200 Orders |
+| Database | PostgreSQL |
+| SQL Queries | 7 |
+| Business Questions Answered | 6 |
+| Products Analyzed | 7 |
+
 ## Tools Used
 - PostgreSQL (database engine)
 - pgAdmin 4 (query interface)
 - SQL: SELECT, WHERE, GROUP BY, HAVING, ORDER BY, COUNT, SUM, AVG
 
-## Data
+## Dataset
 The dataset was cleaned in Project 1 before this analysis.
 It contains 1,200 rows and 14 columns: `OrderID` | `Date` | `CustomerID` | `Product` | `Quantity` | `UnitPrice` | `ShippingAddress` | `PaymentMethod` | `OrderStatus` | `TrackingNumber` | `ItemsInCart` | `CouponCode` | `ReferralSource` | `TotalPrice`
 
@@ -32,7 +42,7 @@ The data was cleaned in Project 1 (missing CouponCode values handled, duplicate 
 - Business insights summary
 - Key findings table
 
-## How Data was Loaded
+## Data Setup
 1. Exported cleaned dataset as CSV from Excel
 2. Created `ecommerce_analytics` database in pgAdmin
 3. Created `orders` table with explicit column types matching the dataset schema
